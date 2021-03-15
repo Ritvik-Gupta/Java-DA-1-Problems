@@ -149,12 +149,6 @@ public final class Triangle {
       Console.print("\n");
       drawGrid(gridDrawable.createGrid(gridSize, fill));
       Console.print("\n");
-
-      // triangles.forEach((key, map) -> {
-      // Console.println("Current Key :\t" + key + "\n\n");
-      // drawGrid(map.createGrid(gridSize, fill));
-      // Console.print("\n");
-      // });
    }
 }
 

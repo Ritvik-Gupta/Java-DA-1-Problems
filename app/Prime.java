@@ -23,7 +23,7 @@ public final class Prime {
          }
 
       primeMap.forEach((idx, isPrime) -> {
-         Console.print("Integer < %s >\t%s a Prime Number", args[idx], isPrime ? "is" : "is not");
+         Console.print("\nInteger < %s >\t%s a Prime Number", args[idx], isPrime ? "is" : "is not");
       });
    }
 }

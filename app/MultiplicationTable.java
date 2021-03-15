@@ -19,7 +19,7 @@ public final class MultiplicationTable {
 
      Console.print("\nMultiplicand :\t%o\n", multiplicand);
       for (int multiplier = 0; multiplier <= upperLimit; ++multiplier)
-        Console.print("\t. %d = %d", multiplier, multiplicand * multiplier);
+        Console.print("\n. %d = %d", multiplier, multiplicand * multiplier);
 
       S.close();
    }
