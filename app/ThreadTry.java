@@ -1,5 +1,6 @@
 package app;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ThreadTry {
@@ -39,47 +40,50 @@ public class ThreadTry {
       // t1 finishes before t2
       t1.join();
       t2.join();
+
+      ArrayList<Integer> arr = new ArrayList<>(20);
+      System.out.println(arr.size());
+      arr.set(10, 5);
+      System.out.println(arr.size());
+
    }
 
    // PC (Produce Consumer) class with produce() and
    // consume() methods.
    public static class PC {
       private static Scanner S = new Scanner(System.in);
+
       // Prints a string and waits for consume()
-      public void produce() throws InterruptedException {
+      synchronized public void produce() throws InterruptedException {
          // synchronized block ensures only one thread
          // running at a time.
-         synchronized (this) {
-            System.out.println("producer thread running");
+         System.out.println("producer thread running");
 
-            // releases the lock on shared resource
-            wait();
+         // releases the lock on shared resource
+         wait();
 
-            // and waits till some other method invokes notify().
-            System.out.println("Resumed");
-         }
+         // and waits till some other method invokes notify().
+         System.out.println("Resumed");
       }
 
       // Sleeps for some time and waits for a key press. After key
       // is pressed, it notifies produce().
-      public void consume() throws InterruptedException {
+      synchronized public void consume() throws InterruptedException {
          // this makes the produce thread to run first.
          Thread.sleep(1000);
 
          // synchronized block ensures only one thread
          // running at a time.
-         synchronized (this) {
-            System.out.println("Waiting for return key.");
-            S.nextLine();
-            System.out.println("Return key pressed");
+         System.out.println("Waiting for return key.");
+         S.nextLine();
+         System.out.println("Return key pressed");
 
-            // notifies the produce thread that it
-            // can wake up.
-            notify();
+         // notifies the produce thread that it
+         // can wake up.
+         notify();
 
-            // Sleep
-            Thread.sleep(2000);
-         }
+         // Sleep
+         Thread.sleep(5000);
       }
    }
 }

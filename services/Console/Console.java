@@ -26,8 +26,10 @@ public final class Console {
 
    public static <T> void println(T[] arr) {
       Console.print("Array Length :\t%d\n", arr.length);
-      for (int pos = 0; pos < arr.length; ++pos)
-         Console.print("\t( %d )\t->\t%s\n", pos, arr[pos].toString());
+      for (int pos = 0; pos < arr.length; ++pos) {
+         T elm = arr[pos];
+         Console.print("\t( %d )\t->\t%s\n", pos, elm == null ? elm : elm.toString());
+      }
    }
 
    public static <T> void println(Collection<T> collection) {
